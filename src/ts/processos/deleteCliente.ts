@@ -18,14 +18,25 @@ export default class DeleteCliente extends Processo{
             return console.log("Cliente não encontrado")
         }
 
-        let titular = buscarCliente.Titular.Dependentes
-        if(titular.length > 0){
-            let remoOmaior = titular.indexOf(buscarCliente)
-            titular.splice(remoOmaior, 1)
-            console.log("dependente removido do titular!")
+        if (buscarCliente.Titular != undefined) {
+        let listaDoPai = buscarCliente.Titular.Dependentes
+        let indexNoPai = listaDoPai.indexOf(buscarCliente)
+        if (indexNoPai !== -1) {
+            listaDoPai.splice(indexNoPai, 1)
+            console.log("Vínculo com o titular removido!")
         }
-
-
+    } 
+    
+  
+    if (buscarCliente.Dependentes.length > 0) {
+        buscarCliente.Dependentes.forEach(dep => {
+            let indexDep = this.clientes.indexOf(dep)
+            if (indexDep !== -1) {
+                this.clientes.splice(indexDep, 1)
+            }
+        })
+        console.log("Dependentes deste titular também foram removidos!")
+    }
 
         let indexCliente = this.clientes.indexOf(buscarCliente)
         this.clientes.splice(indexCliente,1)

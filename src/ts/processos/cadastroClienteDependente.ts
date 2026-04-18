@@ -29,8 +29,8 @@ export default class CadastroClienteDependente extends Processo {
         
 
         //endereço
-       
         cliente.Endereco= titular.Endereco.clonar() as Endereco
+
         //documento
         this.processo = new CadastrarDocumentosCliente(cliente)
         this.processo.processar()

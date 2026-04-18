@@ -23,20 +23,25 @@ export default class CadastrarDocumentosCliente extends Processo {
                 case 1:
                     this.processo = new CadastroCPF(this.cliente)
                     this.processo.processar()
-                    console.log("Documento cadastrado!")
+                    
                     break
                 case 2:
                     this.processo = new CadastroRg(this.cliente)
                     this.processo.processar()
-                    console.log("Documento cadastrado!")
+                    
                     break
                 case 3:
                     this.processo = new CadastroPassaporte(this.cliente)
                     this.processo.processar()
-                    console.log("Documento cadastrado!")
+                   
                     break
 
                 case 0:
+                    
+                    if(this.cliente.Documentos.length == 0 ){
+                        console.log("obrigatorio o cadastro de 1 documento!")
+                        continue
+                    }
                     this.execucao = false
                     break
                 default:

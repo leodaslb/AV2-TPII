@@ -36,4 +36,5 @@ export default class Cliente {
     public set DataNascimento(dataNascimento:Date) {this.dataNascimento = dataNascimento}
     public set Endereco(endereco: Endereco) { this.endereco = endereco }
     public set Titular(titular: Cliente) {this.titular = titular}
+    public set setTelefones(telefones: Telefone[]) {this.telefones=telefones}
 }

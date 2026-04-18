@@ -22,10 +22,10 @@ export default class ListagemDependentes extends Processo {
         })
     }
     private titular(cliente: Cliente): boolean {
-        let verificacao = false
+        let remoOmaior = false
         if (cliente.Titular != undefined) {
-            verificacao = true
+            remoOmaior = true
         }
-        return verificacao
+        return remoOmaior
     }
 }
